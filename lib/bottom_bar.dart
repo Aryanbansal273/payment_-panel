@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-
-import 'cardui.dart';
+import 'package:payment_panel/cardui.dart';
 
 class BottomNavScreen extends StatefulWidget {
   const BottomNavScreen({Key? key}) : super(key: key);
@@ -12,7 +11,7 @@ class BottomNavScreen extends StatefulWidget {
 }
 
 class _BottomNavScreenState extends State<BottomNavScreen> {
-  int _selectedIndex = 1;
+  int _selectedIndex = 0;
 
   final List<Widget> _screens = [
     const CardUI(),
@@ -78,7 +77,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
             shape: BoxShape.circle,
             border: isSelected
                 ? Border.all(color: Colors.white38, width: 1)
-                : null, // Use Border.all for border
+                : null,
           ),
           child: ShaderMask(
             shaderCallback: (Rect bounds) {
@@ -87,11 +86,11 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
                     ? [
                   Colors.white,
                   Colors.white.withOpacity(0.0)
-                ] // White to Transparent for selected
+                ]
                     : [
                   Colors.grey.shade700,
                   Colors.grey.shade900
-                ], // Grey for unselected
+                ],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
               ).createShader(bounds);
@@ -101,7 +100,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
               icon,
               size: 26,
               color:
-              Colors.white, //  Base color, gradient will be applied on top
+              Colors.white,
             ),
           ),
         ),
@@ -123,7 +122,7 @@ class CurvedLinePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()
-      ..strokeWidth = 1.0  // Adjust line thickness here if needed
+      ..strokeWidth = 1.0
       ..style = PaintingStyle.stroke;
 
     paint.shader = LinearGradient(
