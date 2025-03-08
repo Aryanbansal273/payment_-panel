@@ -348,7 +348,7 @@ class _CardUIState extends State<CardUI> {
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  Container(
+                                  Obx(() => Container(
                                     padding: EdgeInsets.all(size.width * 0.04),
                                     decoration: BoxDecoration(
                                       shape: BoxShape.circle,
@@ -360,15 +360,15 @@ class _CardUIState extends State<CardUI> {
                                     ),
                                     child: Icon(
                                       Icons.ac_unit,
-                                      color: Colors.white,
+                                      color: _isFrozen.value ? Colors.red : Colors.white,
                                       size: size.width * 0.08,
                                     ),
-                                  ),
+                                  )),
                                   const SizedBox(height: 5),
                                   Text(
                                     'freeze',
                                     style: TextStyle(
-                                      color: Colors.white,
+                                      color: _isFrozen.value? Colors.red: Colors.white,
                                       fontSize: size.width * 0.04,
                                       fontWeight: FontWeight.bold,
                                     ),

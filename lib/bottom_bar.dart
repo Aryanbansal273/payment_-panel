@@ -11,13 +11,14 @@ class BottomNavScreen extends StatefulWidget {
 }
 
 class _BottomNavScreenState extends State<BottomNavScreen> {
-  int _selectedIndex = 0;
+  int _selectedIndex = 1;
 
   final List<Widget> _screens = [
-    const CardUI(),
+
     const Center(
-        child: Text("Yolo Pay",
+        child: Text("home",
             style: TextStyle(fontSize: 20, color: Colors.white))),
+    const CardUI(),
     const Center(
         child: Text("Genie Screen",
             style: TextStyle(fontSize: 20, color: Colors.white))),
